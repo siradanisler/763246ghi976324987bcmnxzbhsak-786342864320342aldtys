@@ -31,11 +31,11 @@
   },
   {
     "name": "TRT SPOR",
-    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-spor-tr.png?raw=true"",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-spor-tr.png?raw=true",
     "type": "iframe",
     "source": "https://www.tabii.com/tr/watch/live/trtspor?trackId=150022"
   },
-    {
+  {
     "name": "TRT SPOR YILDIZ",
     "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-spor-yildiz-tr.png?raw=true",
     "type": "iframe",
@@ -70,7 +70,7 @@
     "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/international/beinsports/old/stacked/bein-sports-5-int.png?raw=true",
     "type": "iframe",
     "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports5"
-  }
+  },
   {
     "name": "TRT BELGESEL",
     "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-belgesel-tr.png?raw=true",
@@ -94,6 +94,5 @@
     "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-avaz-tr.png?raw=true",
     "type": "iframe",
     "source": "https://www.tabii.com/tr/watch/live/trtavaz?trackId=150048"
-  },
-  
+  }
 ]
