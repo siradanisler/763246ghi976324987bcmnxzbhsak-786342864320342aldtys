@@ -5,19 +5,40 @@
     "type": "m3u8",
     "source": "https://trkvz.daioncdn.net/atv/atv_1080p.m3u8?e=1773045663&st=ITQBu28zMjrPKUn5rMJjtg&sid=888tlhown7bf&app=d1ce2d40-5256-4550-b02e-e73c185a314e&ce=3"
   },
-
-  {
-    "name": "Bein Sports 1 m3u",
-    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/international/beinsports/old/stacked/bein-sports-1-int.png?raw=true",
-    "type": "m3u8",
-    "source": "https://dga1op10s1u3leo.450bb93555fef8.click/live/selcukobs1/playlist.m3u8"
-  },
   
   {
     "name": "Bein Sports 1",
     "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/international/beinsports/old/stacked/bein-sports-1-int.png?raw=true",
     "type": "iframe",
     "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports1"
+  },
+
+  {
+    "name": "Bein Sports 2",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/international/beinsports/old/stacked/bein-sports-2-int.png?raw=true",
+    "type": "iframe",
+    "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports2"
+  },
+
+  {
+    "name": "Bein Sports 3",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/international/beinsports/old/stacked/bein-sports-3-int.png?raw=true",
+    "type": "iframe",
+    "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports3"
+  },
+
+  {
+    "name": "Bein Sports 4",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/international/beinsports/old/stacked/bein-sports-4-int.png?raw=true",
+    "type": "iframe",
+    "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports4"
+  },
+
+  {
+    "name": "Bein Sports 5",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/international/beinsports/old/stacked/bein-sports-5-int.png?raw=true",
+    "type": "iframe",
+    "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports5"
   }
   
 ]
