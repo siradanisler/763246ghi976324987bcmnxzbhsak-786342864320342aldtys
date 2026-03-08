@@ -1,14 +1,14 @@
 [
   {
-    "name": "Bein Sports 1",
-    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/international/beinsports/old/stacked/bein-sports-1-int.png?raw=true",
-    "type": "iframe",
-    "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports1"
-  },
-  {
     "name": "Test M3U8",
     "icon": "https://upload.wikimedia.org/wikipedia/commons/3/36/HLS_Logo.svg",
     "type": "m3u8",
     "source": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
+  },
+  {
+    "name": "Bein Sports 1",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/international/beinsports/old/stacked/bein-sports-1-int.png?raw=true",
+    "type": "iframe",
+    "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports1"
   }
 ]
