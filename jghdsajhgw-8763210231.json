@@ -1,44 +1,99 @@
 [
   {
+    "name": "TRT 1",
+    "icon": "https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/turkey/trt-1-tr.png",
+    "type": "iframe",
+    "source": "https://www.tabii.com/tr/watch/live/trt1?trackId=150002"
+  },
+  {
     "name": "ATV",
     "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/atv-tr.png?raw=true",
     "type": "m3u8",
     "source": "https://trkvz.daioncdn.net/atv/atv_1080p.m3u8?e=1773045663&st=ITQBu28zMjrPKUn5rMJjtg&sid=888tlhown7bf&app=d1ce2d40-5256-4550-b02e-e73c185a314e&ce=3"
   },
-  
+  {
+    "name": "KANAL D",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-gen%C3%A7-tr.png?raw=true",
+    "type": "iframe",
+    "source": "https://demiroren.daioncdn.net/kanald/kanald.m3u8?app=kanald_web&ce=3"
+  },
+  {
+    "name": "TRT MÜZİK",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-muzik-tr.png?raw=true",
+    "type": "iframe",
+    "source": "https://www.tabii.com/tr/watch/live/trtmuzik?trackId=150033"
+  },
+  {
+    "name": "TRT HABER",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-haber-tr.png?raw=true",
+    "type": "iframe",
+    "source": "https://www.tabii.com/tr/watch/live/trthaber?trackId=150017"
+  },
+  {
+    "name": "TRT SPOR",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-spor-tr.png?raw=true"",
+    "type": "iframe",
+    "source": "https://www.tabii.com/tr/watch/live/trtspor?trackId=150022"
+  },
+    {
+    "name": "TRT SPOR YILDIZ",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-spor-yildiz-tr.png?raw=true",
+    "type": "iframe",
+    "source": "https://www.tabii.com/tr/watch/live/trtsporyildiz?trackId=150028"
+  },
   {
     "name": "Bein Sports 1",
     "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/international/beinsports/old/stacked/bein-sports-1-int.png?raw=true",
     "type": "iframe",
     "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports1"
   },
-
   {
     "name": "Bein Sports 2",
     "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/international/beinsports/old/stacked/bein-sports-2-int.png?raw=true",
     "type": "iframe",
     "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports2"
   },
-
   {
     "name": "Bein Sports 3",
     "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/international/beinsports/old/stacked/bein-sports-3-int.png?raw=true",
     "type": "iframe",
     "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports3"
   },
-
   {
     "name": "Bein Sports 4",
     "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/international/beinsports/old/stacked/bein-sports-4-int.png?raw=true",
     "type": "iframe",
     "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports4"
   },
-
   {
     "name": "Bein Sports 5",
     "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/international/beinsports/old/stacked/bein-sports-5-int.png?raw=true",
     "type": "iframe",
     "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports5"
   }
+  {
+    "name": "TRT BELGESEL",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-belgesel-tr.png?raw=true",
+    "type": "iframe",
+    "source": "https://www.tabii.com/tr/watch/live/trtbelgesel?trackId=150012"
+  },
+  {
+    "name": "TRT 2",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-2-tr.png?raw=true",
+    "type": "iframe",
+    "source": "https://www.tabii.com/tr/watch/live/trt2?trackId=150007"
+  },
+  {
+    "name": "TRT TÜRK",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-turk-tr.png?raw=true",
+    "type": "iframe",
+    "source": "https://www.tabii.com/tr/watch/live/trtturk?trackId=150043"
+  },
+  {
+    "name": "TRT AVAZ",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-avaz-tr.png?raw=true",
+    "type": "iframe",
+    "source": "https://www.tabii.com/tr/watch/live/trtavaz?trackId=150048"
+  },
   
 ]
