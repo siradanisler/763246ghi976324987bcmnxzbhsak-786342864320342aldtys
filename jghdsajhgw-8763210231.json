@@ -1,9 +1,9 @@
 [
   {
-    "name": "test",
-    "icon": "https://upload.wikimedia.org/wikipedia/commons/3/36/HLS_Logo.svg",
+    "name": "TRT 1",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-1-tr.png?raw=true",
     "type": "m3u8",
-    "source": "https://vod3.cf.dmcdn.net/sec2(rQX23gk0HNMMqQ9Uaj0E4LjEPUcgnc9vMkejB5baMTyCgmEasEPtuuDr_TysjKaK0G5FsMLCEmETt83fBgX8uRiZF6CYLEHy6SG_tRjh6b_jiGHcwV33KHTzWmkW-thsM0UWmaQpXYvhZdpz-OkoJY_4DJh8rUYNDfirBXJiacD6b8UTue3q7iYSur_WX1uK0M1i_9UFNB12xrr5AnIo3g)/video/fmp4/586589642/h264_aac_qhd_hfr/3/manifest.m3u8"
+    "source": "https://streams.uzunmuhalefet.com/stream/535f4f5a-3ffa-4919-bb5d-5d31024c9237.m3u8"
   },
   {
     "name": "Aydın TV",
