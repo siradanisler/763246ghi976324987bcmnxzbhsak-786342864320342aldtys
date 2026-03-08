@@ -1,28 +1,23 @@
 [
   {
-    "name": "TRT 1",
-    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-1-tr.png?raw=true",
-    "type": "m3u8",
-    "source": "https://trt.daioncdn.net/trt-1/master_1440p.m3u8?&sid=888tvltol46e&app=ed3904e8-737b-4a5e-856a-1b0d7a0a94e2&ce=2"
-  },
-  {
     "name": "ATV",
     "icon": "",
     "type": "m3u8",
     "source": "https://trkvz.daioncdn.net/atv/atv_1080p.m3u8?e=1773045663&st=ITQBu28zMjrPKUn5rMJjtg&sid=888tlhown7bf&app=d1ce2d40-5256-4550-b02e-e73c185a314e&ce=3"
   },
 
-  
   {
-    "name": "Aydın TV",
-    "icon": "https://upload.wikimedia.org/wikipedia/commons/3/36/HLS_Logo.svg",
-    "type": "iframe",
-    "source": "https://www.dailymotion.com/video/x9p8ngq"
+    "name": "Bein Sports 1 m3u",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/international/beinsports/old/stacked/bein-sports-1-int.png?raw=true",
+    "type": "m3u8",
+    "source": "https://dga1op10s1u3leo.450bb93555fef8.click/live/selcukobs1/playlist.m3u8"
   },
+  
   {
     "name": "Bein Sports 1",
     "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/international/beinsports/old/stacked/bein-sports-1-int.png?raw=true",
     "type": "iframe",
     "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports1"
   }
+  
 ]
