@@ -6,6 +6,14 @@
     "source": "https://streams.uzunmuhalefet.com/stream/6bdc8fb5-3e82-4b44-a0b1-6ab9fdc35d3f.m3u8"
   },
   {
+    "name": "ATV",
+    "icon": "",
+    "type": "m3u8",
+    "source": "http://162.212.179.33/dvrfl05/gin-atvavrupa/playlist.m3u8"
+  },
+
+  
+  {
     "name": "Aydın TV",
     "icon": "https://upload.wikimedia.org/wikipedia/commons/3/36/HLS_Logo.svg",
     "type": "iframe",
