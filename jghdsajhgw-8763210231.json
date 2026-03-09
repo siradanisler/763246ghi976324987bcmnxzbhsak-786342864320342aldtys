@@ -1,11 +1,11 @@
-[
-  { "name": "TRT 1", "source": "https://www.tabii.com/tr/watch/live/trt1?trackId=150002" },
-  { "name": "TRT SPOR", "source": "https://www.tabii.com/tr/watch/live/trtspor?trackId=150022" },
-  { "name": "TRT SPOR YILDIZ", "source": "https://www.tabii.com/tr/watch/live/trtsporyildiz?trackId=150028" },
-  { "name": "Bein Sports", "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukobs1" },
-  { "name": "Bein Sports", "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports2" },
-  { "name": "Bein Sports", "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports3" },
-  { "name": "Bein Sports", "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports4" },
-  { "name": "Bein Sports", "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports5" },
-  { "name": "ATV", "source": "https://www.atv.com.tr/canli-yayin" }
-]
+let channels = [
+  { "name": "TRT 1", "source": "https://www.tabii.com/tr/watch/live/trt1?trackId=150002", "time": "CANLI" },
+  { "name": "TRT SPOR", "source": "https://www.tabii.com/tr/watch/live/trtspor?trackId=150022", "time": "CANLI" },
+  { "name": "TRT SPOR YILDIZ", "source": "https://www.tabii.com/tr/watch/live/trtsporyildiz?trackId=150028", "time": "CANLI" },
+  { "name": "ATV HD", "source": "https://www.atv.com.tr/canli-yayin", "time": "CANLI" },
+  { "name": "Bein Sports 1", "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukobs1", "time": "MAÇ" },
+  { "name": "Bein Sports 2", "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports2", "time": "MAÇ" },
+  { "name": "Bein Sports 3", "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports3", "time": "MAÇ" },
+  { "name": "Bein Sports 4", "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports4", "time": "MAÇ" },
+  { "name": "Bein Sports 5", "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports5", "time": "MAÇ" }
+];
