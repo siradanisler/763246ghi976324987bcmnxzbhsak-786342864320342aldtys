@@ -46,6 +46,14 @@
     "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-muzik-tr.png?raw=true",
     "type": "m3u8",
     "source": "https://tv-trtmuzik.medya.trt.com.tr/master.m3u8"
+  },
+  {
+    "name": "OLAY TÜRK",
+    "icon": "https://i.imgur.com/e9ca6gc.png",
+    "type": "m3u8",
+    "source": "https://live.artidijitalmedya.com/artidijital_olayturk/olayturk/playlist.m3u8"
   }
 
+
+  
 ]
