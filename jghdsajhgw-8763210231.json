@@ -29,37 +29,5 @@
     "type": "iframe",
     "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports5"
   },
-  {
-    "name": "Bein Sports İspanyolca",
-    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/international/beinsports/old/stacked/bein-sports-espanol-int.png?raw=true",
-    "type": "iframe",
-    "source": "https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/bein-sports-xtra/playlist.m3u8?ads.vf=kBQplLldqQO"
-  },
-  {
-    "name": "TRT SPOR",
-    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-spor-tr.png?raw=true",
-    "type": "m3u8",
-    "source": "https://tv-trtspor1.medya.trt.com.tr/master.m3u8"
-  },
-  {
-    "name": "TRT SPOR YILDIZ",
-    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-spor-yildiz-tr.png?raw=true",
-    "type": "m3u8",
-    "source": "https://tv-trtspor2.medya.trt.com.tr/master.m3u8"
-  },
-  {
-    "name": "TRT MÜZİK",
-    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-muzik-tr.png?raw=true",
-    "type": "m3u8",
-    "source": "https://tv-trtmuzik.medya.trt.com.tr/master.m3u8"
-  },
-  {
-    "name": "OLAY TÜRK",
-    "icon": "https://i.imgur.com/e9ca6gc.png",
-    "type": "m3u8",
-    "source": "https://live.artidijitalmedya.com/artidijital_olayturk/olayturk/playlist.m3u8"
-  }
-
-
   
 ]
