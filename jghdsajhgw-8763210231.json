@@ -28,5 +28,24 @@
     "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/international/beinsports/old/stacked/bein-sports-5-int.png?raw=true",
     "type": "iframe",
     "source": "https://main.uxsyplayer496f5b9a47.click/index.php?id=selcukbeinsports5"
+  },
+  {
+    "name": "TRT SPOR",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-spor-tr.png?raw=true",
+    "type": "m3u8",
+    "source": "https://tv-trtspor1.medya.trt.com.tr/master.m3u8"
+  },
+  {
+    "name": "TRT SPOR YILDIZ",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-spor-yildiz-tr.png?raw=true",
+    "type": "m3u8",
+    "source": "https://tv-trtspor2.medya.trt.com.tr/master.m3u8"
+  },
+  {
+    "name": "TRT MÜZİK",
+    "icon": "https://github.com/tv-logo/tv-logos/blob/main/countries/turkey/trt-muzik-tr.png?raw=true",
+    "type": "m3u8",
+    "source": "https://tv-trtmuzik.medya.trt.com.tr/master.m3u8"
   }
+
 ]
