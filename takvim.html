@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haftalık Maç Takvimi</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Scrollbar yok */
+    font-family: 'Arial', sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+  }
+
+  header {
+    text-align: center;
+    padding: 40px 16px;
+    font-size: 60px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #1c1c1c, #2a2a2a);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+  }
+
+  /* Gün kartlarını tek satır veya alt satıra wrap */
+  .grid {
+    display: flex;
+    flex-wrap: wrap;        /* taşarsa alt satıra geçsin */
+    justify-content: center; 
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    height: calc(100% - 120px);
+    box-sizing: border-box;
+  }
+
+  .card {
+    width: 200px;           /* sabit genişlik */
+    min-width: 200px;
+    flex: 0 0 auto;         /* esneklik iptal, taşmayı önler */
+    background: linear-gradient(#0f2f0f, #1b1b1b);
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+    border: 2px solid #1b1b1b;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .card h2 {
+    margin: 0 0 16px 0;
+    font-size: 28px;
+    border-bottom: 2px solid #2a7a2a;
+    padding-bottom: 12px;
+    text-transform: capitalize;
+    color: #f5f5f5;
+    text-align: center;
+  }
+
+  .match {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 8px 0;
+    padding: 8px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.3);
+    font-size: 18px;
+  }
+
+  .teams-container {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .time {
+    font-size: 16px;
+    padding: 4px 8px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .turkey .teams-container {
+    color: #ffcc00 !important;
+  }
+
+  .turkey .time {
+    background: #ffcc00;
+    color: #000;
+  }
+
+  .loading, .no-match {
+    text-align: center;
+    color: #aaa;
+    padding: 20px 0;
+    font-style: italic;
+    font-size: 20px;
+  }
+
+  /* TV & responsive ayarlar */
+  @media (max-width: 1920px) {
+    .card { width: 180px; min-width: 180px; }
+    .match { font-size: 16px; padding: 6px; }
+    .time { font-size: 14px; padding: 4px 6px; }
+    header { font-size: 50px; padding: 30px 16px; }
+  }
+
+  @media (max-width: 1280px) {
+    .card { width: 160px; min-width: 160px; }
+  }
+
+  @media (max-width: 800px) {
+    .grid { flex-direction: column; align-items: center; }
+    .card { width: 90%; min-width: auto; }
+    .match { font-size: 14px; padding: 6px; }
+    .time { font-size: 12px; padding: 4px 6px; }
+    header { font-size: 36px; padding: 20px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header>⚽ Haftalık Maç Takvimi</header>
+<div class="grid" id="matchesGrid">
+  <div class="loading">Yükleniyor...</div>
+</div>
+
+<script>
+function getTRDate(daysFromToday = 0) {
+  const now = new Date();
+  const trTime = new Date(now.toLocaleString("en-US", { timeZone: "Europe/Istanbul" }));
+  trTime.setDate(trTime.getDate() + daysFromToday);
+  return trTime;
+}
+
+function formatDateTRtoISO(dateObj) {
+  const year = dateObj.getFullYear();
+  const month = String(dateObj.getMonth()+1).padStart(2,'0');
+  const day = String(dateObj.getDate()).padStart(2,'0');
+  return `${year}-${month}-${day}`;
+}
+
+function formatTimeToTR(utcTime) {
+  if (!utcTime) return "";
+  const [h, m] = utcTime.split(":");
+  const d = new Date();
+  d.setUTCHours(h, m);
+  return d.toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Istanbul" });
+}
+
+function matchIsInFuture(dateStr, timeStr) {
+  const [year, month, day] = dateStr.split('-').map(Number);
+  const [hour, minute] = timeStr.split(':').map(Number);
+  const matchDate = new Date();
+  matchDate.setFullYear(year, month-1, day);
+  matchDate.setHours(hour, minute, 0);
+  const nowTR = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Istanbul" }));
+  return matchDate >= nowTR;
+}
+
+const grid = document.getElementById("matchesGrid");
+
+async function loadWeekMatches() {
+  grid.innerHTML = "";
+
+  for (let i = 0; i < 7; i++) {
+    const dt = getTRDate(i);
+    const isoDate = formatDateTRtoISO(dt);
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `<h2>${dt.toLocaleDateString("tr-TR", { weekday: "long", timeZone: "Europe/Istanbul" })}</h2>`;
+
+    try {
+      const res = await fetch(`https://www.thesportsdb.com/api/v1/json/123/eventsday.php?d=${isoDate}&s=Soccer`);
+      const data = await res.json();
+
+      if (!data.events || data.events.length === 0) {
+        card.innerHTML += `<div class="no-match">Bugün maç yok</div>`;
+      } else {
+        let hasFutureMatch = false;
+        data.events.forEach(ev => {
+          if (matchIsInFuture(isoDate, ev.strTime)) {
+            hasFutureMatch = true;
+            const time = formatTimeToTR(ev.strTime);
+            const isTurkey = ev.strCountry === "Turkey";
+            const teamClass = isTurkey ? "teams turkey" : "teams";
+            const timeStyle = isTurkey ? 'style="background:#ffcc00;color:#000;"' : '';
+
+            card.innerHTML += `
+              <div class="match ${isTurkey ? 'turkey' : ''}">
+                <div class="teams-container ${isTurkey ? 'turkey' : ''}">
+                  <span class="teams">${ev.strHomeTeam}</span>
+                  <span class="teams">${ev.strAwayTeam}</span>
+                </div>
+                <span class="time" ${timeStyle}>${time}</span>
+              </div>`;
+          }
+        });
+        if (!hasFutureMatch) {
+          card.innerHTML += `<div class="no-match">Bugün maç yok</div>`;
+        }
+      }
+
+    } catch (e) {
+      card.innerHTML += `<div class="no-match">Veri yüklenemedi</div>`;
+    }
+
+    grid.appendChild(card);
+  }
+}
+
+loadWeekMatches();
+</script>
+
+</body>
+</html>
