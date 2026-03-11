@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patron Spor | Canlı Skor Merkezi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #f8fafc; }
+        .match-card { background: linear-gradient(145deg, #0f172a, #020617); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
+        .match-card.is-live { border-color: #fbbf24; box-shadow: 0 0 20px rgba(251, 191, 36, 0.1); }
+        .score-box { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 4px 12px; min-width: 80px; text-align: center; }
+        .live-indicator { width: 8px; height: 8px; background: #ef4444; border-radius: 50%; animation: blink 1.2s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto">
+        <header class="flex justify-between items-end mb-12">
+            <div>
+                <h1 class="text-3xl font-800 tracking-tighter italic text-white">PATRON<span class="text-amber-400">SPOR</span></h1>
+                <p class="text-xs text-slate-500 font-medium tracking-widest uppercase mt-1">Global Match Intelligence</p>
+            </div>
+            <div id="update-timer" class="text-[10px] text-slate-500 font-mono bg-white/5 px-3 py-1 rounded-full border border-white/10">
+                Syncing...
+            </div>
+        </header>
+
+        <div id="league-containers" class="space-y-12">
+            <!-- Loading State -->
+            <div class="flex flex-col items-center justify-center py-24 gap-4">
+                <div class="w-8 h-8 border-2 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
+                <p class="text-slate-400 text-sm animate-pulse">Maç verileri ve canlı skorlar senkronize ediliyor...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const CONFIG = {
+            SCHEDULE_URL: 'https://patronsports2.cfd/matches.php',
+            LIVE_SOURCES: [
+                'https://site.api.espn.com/apis/site/v2/sports/soccer/all/scoreboard',
+                'https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard', // Premier League direct
+                'https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard' // UCL direct
+            ]
+        };
+
+        // Takım isimlerini normalize eden ve benzerlik ölçen motor
+        const MatchEngine = {
+            normalize(name) {
+                if (!name) return "";
+                return name.toLowerCase()
+                    .replace(/İ/g, "i").replace(/I/g, "i")
+                    .replace(/[^a-z0-9]/g, "")
+                    .replace("manchester", "man")
+                    .replace("city", "c")
+                    .replace("united", "u")
+                    .replace("madrid", "madr");
+            },
+
+            isSameMatch(h1, a1, h2, a2) {
+                const home1 = this.normalize(h1);
+                const away1 = this.normalize(a1);
+                const home2 = this.normalize(h2);
+                const away2 = this.normalize(a2);
+
+                // Direkt eşleşme veya içerme kontrolü (Man City vs Manchester City)
+                const homeMatch = home1.includes(home2) || home2.includes(home1);
+                const awayMatch = away1.includes(away2) || away2.includes(away1);
+
+                return homeMatch && awayMatch;
+            }
+        };
+
+        async function fetchLivePool() {
+            const pool = [];
+            try {
+                const results = await Promise.all(CONFIG.LIVE_SOURCES.map(url => fetch(url).then(r => r.json())));
+                
+                results.forEach(data => {
+                    data.events?.forEach(event => {
+                        const status = event.status.type.name;
+                        const competition = event.competitions[0];
+                        const home = competition.competitors.find(c => c.homeAway === 'home');
+                        const away = competition.competitors.find(c => c.homeAway === 'away');
+                        
+                        pool.push({
+                            home: home.team.displayName,
+                            away: away.team.displayName,
+                            homeScore: home.score,
+                            awayScore: away.score,
+                            minute: event.status.displayClock || event.status.type.shortDetail,
+                            isLive: status === 'STATUS_IN_PROGRESS' || status === 'STATUS_HALFTIME'
+                        });
+                    });
+                });
+            } catch (e) { console.error("Live fetch error:", e); }
+            return pool;
+        }
+
+        async function updateScores() {
+            const timerEl = document.getElementById('update-timer');
+            try {
+                const [schedule, livePool] = await Promise.all([
+                    fetch(CONFIG.SCHEDULE_URL).then(r => r.json()),
+                    fetchLivePool()
+                ]);
+
+                // Eşleştirme işlemi
+                const syncedMatches = schedule.map(m => {
+                    const found = livePool.find(live => MatchEngine.isSameMatch(m.HomeTeam, m.AwayTeam, live.home, live.away));
+                    
+                    if (found) {
+                        return {
+                            ...m,
+                            currentScore: `${found.homeScore} - ${found.awayScore}`,
+                            statusText: found.minute,
+                            isLive: found.isLive
+                        };
+                    }
+                    return {
+                        ...m,
+                        currentScore: m.score && m.score !== "vs" ? m.score : "0 - 0",
+                        statusText: m.Time || "Bekliyor",
+                        isLive: false
+                    };
+                });
+
+                render(syncedMatches);
+                timerEl.innerText = `SYNCED: ${new Date().toLocaleTimeString()}`;
+            } catch (err) {
+                console.error("Update Error:", err);
+                timerEl.innerText = "OFFLINE";
+            }
+        }
+
+        function render(matches) {
+            const container = document.getElementById('league-containers');
+            
+            // Liglere göre grupla
+            const groups = matches.reduce((acc, m) => {
+                const league = m.league || "Diğer Ligler";
+                if (!acc[league]) acc[league] = [];
+                acc[league].push(m);
+                return acc;
+            }, {});
+
+            container.innerHTML = Object.entries(groups).map(([league, items]) => `
+                <section>
+                    <div class="flex items-center gap-4 mb-6">
+                        <h2 class="text-xs font-800 tracking-[0.4em] uppercase text-amber-400/80">${league}</h2>
+                        <div class="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent"></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        ${items.map(m => `
+                            <div class="match-card rounded-xl p-4 ${m.isLive ? 'is-live' : ''}">
+                                <div class="flex flex-col gap-3">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <div class="flex items-center gap-2">
+                                            ${m.isLive ? '<span class="live-indicator"></span>' : ''}
+                                            <span class="text-[10px] font-bold tracking-widest uppercase ${m.isLive ? 'text-red-500' : 'text-slate-500'}">
+                                                ${m.statusText}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="space-y-2 flex-1">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm font-600 text-slate-200 truncate pr-4">${m.HomeTeam}</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm font-600 text-slate-200 truncate pr-4">${m.AwayTeam}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-2 pt-3 border-t border-white/5 flex justify-between items-center">
+                                        <div class="score-box text-xl font-800 tracking-widest text-white">
+                                            ${m.currentScore}
+                                        </div>
+                                        <button class="text-[10px] bg-amber-400 hover:bg-amber-500 text-black font-800 px-3 py-1.5 rounded uppercase transition-colors">
+                                            İzle
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </section>
+            `).join('');
+        }
+
+        // Başlat ve Periyodik Güncelle
+        updateScores();
+        setInterval(updateScores, 20000); // 20 saniyede bir kontrol et
+    </script>
+</body>
+</html>
