@@ -1,4 +1,10 @@
 [
+    { 
+    "name": "BEIN SPOR HABER", 
+    "category": "Spor", 
+    "source": "https://www.canlitv.me/geolive.php?kanal=beinsportshaber-hd&security=f113dc48b5baf415b4fd975e6a369aa5", 
+    "time": "YAYINDA" 
+  },
   { 
     "name": "TRT 1", 
     "category": "Ulusal", 
@@ -224,7 +230,7 @@
   { 
     "name": "İDMAN TV", 
     "category": "Spor", 
-    "source": "https://www.mackeyfi421.sbs/wp-content/themes/ikisifirbirdokuz/match-center.php?id=5132&autoPlay=1", 
+    "source": "https://yodaplayer.yodacdn.net/idmanpop/index.php", 
     "time": "YAYINDA" 
   },
   { 
