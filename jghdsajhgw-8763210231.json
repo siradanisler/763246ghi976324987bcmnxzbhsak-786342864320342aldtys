@@ -1,14 +1,8 @@
 [
-    { 
-    "name": "FUTBOL", 
-    "category": "Spor", 
-    "source": "https://patronsportv20.cfd/livescore.html", 
-    "time": "BİLGİ EKRANI" 
-  },
   { 
     "name": "TRT 1", 
     "category": "Ulusal", 
-    "source": "https://www.tabii.com/tr/watch/live/trt1?trackId=150002", 
+    "source": "https://ujnf69op16x2fiiywxcnx41q8.medya.trt.com.tr/master.m3u8", 
     "time": "YAYINDA" 
   },
   { 
