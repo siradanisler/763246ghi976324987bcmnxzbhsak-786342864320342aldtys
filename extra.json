@@ -1,0 +1,21 @@
+[
+  
+  {
+    "name": "KANAL D",
+    "sub": "7/24 YAYIN",
+    "src": "https://demiroren.daioncdn.net/kanald/kanald.m3u8",
+    "type": "m3u8"
+  },
+  {
+    "name": "TRT 1",
+    "sub": "7/24 YAYIN",
+    "src": "https://tv-trt1.medya.trt.com.tr/master.m3u8",
+    "type": "m3u8"
+  },
+  {
+    "name": "Örnek Harici Player",
+    "sub": "7/24 YAYIN",
+    "src": "https://ornek-player.com/watch.html?id=kanal1",
+    "type": "iframe"
+  }
+]
